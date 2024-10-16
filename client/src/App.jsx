@@ -29,11 +29,9 @@ const App = () => {
 
   return (
     <div className='app'>
-
       <Navigation />
-
       { element }
-
+      <div className='flex text-white bg-red-800  p-2 w-24 rounded-md'>$69000</div>
     </div>
   )
 }
