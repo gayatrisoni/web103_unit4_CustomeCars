@@ -9,10 +9,10 @@ import './App.css'
 
 const App = () => {
   let element = useRoutes([
-    {
-      path: '/',
-      element: <CreateCar title='BOLT BUCKET | Customize' />
-    },
+    // {
+    //   path: '/',
+    //   element: <CreateCar title='BOLT BUCKET | Customize' />
+    // },
     {
       path:'/customcars',
       element: <ViewCars title='BOLT BUCKET | Custom Cars' />
@@ -31,7 +31,7 @@ const App = () => {
     <div className='app'>
       <Navigation />
       { element }
-      <div className='flex text-white bg-red-800  p-2 w-24 rounded-md'>$69000</div>
+      
     </div>
   )
 }

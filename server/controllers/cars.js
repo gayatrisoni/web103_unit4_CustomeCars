@@ -31,9 +31,10 @@ const getCar = async(req, res) => {
 // Create a new car 
 const createCar = async(req, res) => {
     const {name, isconvertible, exterior, interior, roof, wheels, price } = req.body
+    
     try {
         const results = await pool.query(`
-            INSTER INTO cars(name, exterior, interior, roof, wheels, isconvertible, price )
+            INSERT INTO cars(name, exterior, interior, roof, wheels, isconvertible, price )
             VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING *`,
             [name, exterior, interior, roof, wheels, isconvertible, price]
@@ -43,6 +44,7 @@ const createCar = async(req, res) => {
         console.error('⚠️ Error creating car:', error);
         res.status(500).json({ error: 'An error occurred while creating car.' });
     }
+
 } 
 
 // update the car by id
@@ -67,7 +69,7 @@ const updateCar = async(req, res) => {
 
 // delete a car by id
 const deleteCar = async(req, res) => {
-    const id = parseInt(req.params,id)
+    const id = parseInt(req.params.id)
     try {
         const results = await pool.query('DELETE FROM cars WHERE id=$1', [id])
         
